@@ -1,0 +1,18 @@
+{
+  "moduleInstanceId": "Dashboard_Prod_stockFilter1",
+  "isPublic": true,
+  "rootModuleInstanceId": "Dashboard_Prod_stockFilter1",
+  "unpublishedCollection": {
+    "name": "_$Prod_stockFilter1$_Prod_stockFilter",
+    "pageId": "Dashboard",
+    "contextType": "PAGE",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "userPermissions": []
+  },
+  "id": "Dashboard__$Prod_stockFilter1$_Prod_stockFilter",
+  "deleted": false,
+  "gitSyncId": "66279d9d4cc7603079f3d200_3382aa6e-c0ba-4713-a3de-e832a36e0fc8"
+}

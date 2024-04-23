@@ -1,0 +1,18 @@
+{
+  "moduleInstanceId": "Products_utilspackage",
+  "isPublic": true,
+  "rootModuleInstanceId": "Products_utilspackage",
+  "unpublishedCollection": {
+    "name": "_$utilspackage$_utils",
+    "pageId": "Products",
+    "contextType": "PAGE",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "userPermissions": []
+  },
+  "id": "Products__$utilspackage$_utils",
+  "deleted": false,
+  "gitSyncId": "66279d9d4cc7603079f3d200_7d2d097e-42f1-49da-b2cd-ffaf711bc0e7"
+}

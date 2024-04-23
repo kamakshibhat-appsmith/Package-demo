@@ -22,11 +22,12 @@
     "leftColumn": 18,
     "dynamicBindingPathList": [
         {"key": "accentColor"},
-        {"key": "defaultOptionValue"}
+        {"key": "defaultOptionValue"},
+        {"key": "sourceData"}
     ],
     "placeholderText": "Stock status",
     "isDisabled": false,
-    "sourceData": "[\n{\n    \"label\": \"All products\",\n    \"value\": \"All products\"\n  },\n  {\n    \"label\": \"Low stock\",\n    \"value\": \"Low stock\"\n  },\n  {\n    \"label\": \"Out of stock\",\n    \"value\": \"Out of stock\"\n  }\n]",
+    "sourceData": "{{utilspackage.allStockFilters}}",
     "key": "fj5c87ojig",
     "labelTextSize": "0.875rem",
     "isRequired": false,
@@ -43,6 +44,6 @@
     "optionLabel": "label",
     "borderRadius": "0.375rem",
     "maxDynamicHeight": 9000,
-    "onOptionChange": "{{utils.getProducts()}}",
+    "onOptionChange": "{{utilspackage.getProducts1(sel_productStockFilter.selectedOptionValue, {limit: tbl_products.pageSize},{offset: tbl_products.pageOffset})}}",
     "minDynamicHeight": 4
 }

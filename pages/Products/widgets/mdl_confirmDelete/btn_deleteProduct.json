@@ -2,7 +2,7 @@
     "resetFormOnClick": false,
     "boxShadow": "none",
     "widgetName": "btn_deleteProduct",
-    "onClick": "{{utils.deleteProduct(tbl_products.triggeredRow.Id)}}",
+    "onClick": "{{utils11.deleteProduct(tbl_products.triggeredRow.Id)}}",
     "buttonColor": "#f22b2b",
     "dynamicPropertyPathList": [{"key": "onClick"}],
     "displayName": "Button",

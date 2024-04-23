@@ -1,0 +1,18 @@
+{
+  "moduleInstanceId": "Dashboard_utils1",
+  "isPublic": true,
+  "rootModuleInstanceId": "Dashboard_utils1",
+  "unpublishedCollection": {
+    "name": "_$utils1$_utils",
+    "pageId": "Dashboard",
+    "contextType": "PAGE",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "userPermissions": []
+  },
+  "id": "Dashboard__$utils1$_utils",
+  "deleted": false,
+  "gitSyncId": "66279d9d4cc7603079f3d200_bee66bab-a01b-4b31-8be3-4f5d4029241a"
+}

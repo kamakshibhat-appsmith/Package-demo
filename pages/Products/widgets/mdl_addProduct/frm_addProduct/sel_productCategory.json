@@ -28,7 +28,7 @@
     "labelStyle": "BOLD",
     "placeholderText": "Select option",
     "isDisabled": false,
-    "sourceData": "{{utils.getCategories.data.map(d => {\n\treturn {\n\t\tlabel: d.name,\n\t\tvalue: d.name\n\t}\n})}}",
+    "sourceData": "{{utils11.getCategories.data.map(d => {\n\treturn {\n\t\tlabel: d.name,\n\t\tvalue: d.name\n\t}\n})}}",
     "key": "z883xe0z42",
     "labelTextSize": "1rem",
     "isRequired": false,

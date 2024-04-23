@@ -28,12 +28,13 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Dashboard_getProductWarehouse",
-              "name": "getProductWarehouse",
+              "id": "Dashboard__$utils1$_utils.productWarehouseChartData",
+              "name": "_$utils1$_utils.productWarehouseChartData",
+              "collectionId": "Dashboard__$utils1$_utils",
               "confirmBeforeExecute": false,
-              "pluginType": "DB",
+              "pluginType": "JS",
               "jsonPathKeys": [
-                "sel_product.selectedOptionValue ? sel_product.selectedOptionValue : 147"
+                "async sel1 => {\n  const productLocations = await _$utils1$_getProductWarehouse.run(sel1);\n  return productLocations.map(l => {\n    return {\n      Stock: l.stock,\n      Warehouse: l.label\n    };\n  });\n}"
               ],
               "timeoutInMillisecond": 10000
             },
@@ -68,6 +69,19 @@
               "pluginType": "DB",
               "jsonPathKeys": [],
               "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Dashboard__$utils1$_utils.getProducts1",
+              "name": "_$utils1$_utils.getProducts1",
+              "collectionId": "Dashboard__$utils1$_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async (selectedvalue, limit, offset) => {\n  const stockFilter = selectedvalue;\n  const products = await _$utils1$_getProducts1.run(limit, offset);\n  let filteredProducts = products;\n  if (stockFilter === 'Low stock') {\n    filteredProducts = products.filter(p => p.total_stock && p.total_stock < p.low_stock && p.total_stock !== 0);\n  } else if (stockFilter === 'Out of stock') {\n    filteredProducts = products.filter(p => p.total_stock < 1);\n  }\n  return filteredProducts.map(p => ({\n    Id: p.id,\n    Name: p.name,\n    SalePrice: p.price,\n    CostPrice: p.cost,\n    Sku: p.sku,\n    Category: p.category,\n    LowStock: p.low_stock,\n    Image: p.image,\n    TotalStock: p.total_stock,\n    VariationId: p.product_variant_id,\n    Description: p.description\n  }));\n}"
+              ],
+              "timeoutInMillisecond": 10000
             },
             {
               "id": "Dashboard_utils.getPurchaseOrders",
@@ -83,6 +97,27 @@
           ],
           [
             {
+              "id": "Dashboard__$utils1$_getProducts1",
+              "name": "_$utils1$_getProducts1",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [
+                "this.params.offset",
+                "this.params.limit"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Dashboard_getProductWarehouse",
+              "name": "getProductWarehouse",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [
+                "sel_product.selectedOptionValue ? sel_product.selectedOptionValue : 147"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
               "id": "Dashboard_utils.dashboardMetrics",
               "name": "utils.dashboardMetrics",
               "collectionId": "Dashboard_utils",
@@ -96,13 +131,13 @@
           ],
           [
             {
-              "id": "Dashboard_utils.productWarehouseChartData",
-              "name": "utils.productWarehouseChartData",
-              "collectionId": "Dashboard_utils",
+              "id": "Dashboard__$utils1$_utils.allProducts",
+              "name": "_$utils1$_utils.allProducts",
+              "collectionId": "Dashboard__$utils1$_utils",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  const productLocations = await getProductWarehouse.run();\n  if (sel_product) {\n    return productLocations.map(l => {\n      return {\n        Stock: l.stock,\n        Warehouse: l.label\n      };\n    });\n  } else {\n    return [];\n  }\n}"
+                "async () => _$utils1$_getProducts1.data.map(p => ({\n  label: p.name,\n  value: p.id\n}))"
               ],
               "timeoutInMillisecond": 10000
             }

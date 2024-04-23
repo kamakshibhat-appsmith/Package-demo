@@ -31,7 +31,7 @@
     "labelStyle": "BOLD",
     "placeholderText": "Select option",
     "isDisabled": false,
-    "sourceData": "{{utils.getSuppliers.data.map(d => {\n\treturn {\n\t\tlabel: d.Name,\n\t\tvalue: d.Id\n\t}\n})}}",
+    "sourceData": "{{utils11.getSuppliers.data.map(d => {\n\treturn {\n\t\tlabel: d.Name,\n\t\tvalue: d.Id\n\t}\n})}}",
     "key": "uzf4lqn1tc",
     "labelTextSize": "1rem",
     "isRequired": true,
@@ -52,6 +52,6 @@
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "maxDynamicHeight": 9000,
     "originalBottomRow": 14,
-    "onOptionChange": "{{\nutils.setSupplier()\n}}",
+    "onOptionChange": "{{\nutils11.setSupplier()\n}}",
     "minDynamicHeight": 4
 }

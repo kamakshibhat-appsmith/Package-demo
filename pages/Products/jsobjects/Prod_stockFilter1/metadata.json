@@ -1,0 +1,18 @@
+{
+  "moduleInstanceId": "Products_Prod_stockFilter1",
+  "isPublic": true,
+  "rootModuleInstanceId": "Products_Prod_stockFilter1",
+  "unpublishedCollection": {
+    "name": "_$Prod_stockFilter1$_Prod_stockFilter",
+    "pageId": "Products",
+    "contextType": "PAGE",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "userPermissions": []
+  },
+  "id": "Products__$Prod_stockFilter1$_Prod_stockFilter",
+  "deleted": false,
+  "gitSyncId": "66279d9d4cc7603079f3d200_f6a54be1-be5d-4a1b-83d6-e05a7c876e3f"
+}

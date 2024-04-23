@@ -1,0 +1,19 @@
+{
+  "packageUUID": "35a35fb1-a9ea-4ac7-92f7-54d785869801",
+  "moduleUUID": "8cdd5fa2-4093-4a07-938b-01ba7f29b5ab",
+  "type": "JS_MODULE",
+  "unpublishedModuleInstance": {
+    "version": "0.0.40",
+    "name": "Prod_stockFilter1",
+    "contextType": "PAGE",
+    "pageId": "Dashboard",
+    "inputs": {},
+    "jsonPathKeys": [],
+    "isValid": true,
+    "invalids": [],
+    "userPermissions": []
+  },
+  "id": "Dashboard_Prod_stockFilter1",
+  "deleted": false,
+  "gitSyncId": "66279d9d4cc7603079f3d200_b4f20520-98df-43c9-ab0e-83aa7d019bfe"
+}

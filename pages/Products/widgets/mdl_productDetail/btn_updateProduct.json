@@ -2,7 +2,7 @@
     "resetFormOnClick": false,
     "boxShadow": "none",
     "widgetName": "btn_updateProduct",
-    "onClick": "{{utils.updateProduct();\ncloseModal('mdl_productDetail')\n}}",
+    "onClick": "{{utils11.updateProduct();\ncloseModal('mdl_productDetail')\n}}",
     "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
     "dynamicPropertyPathList": [{"key": "onClick"}],
     "displayName": "Button",

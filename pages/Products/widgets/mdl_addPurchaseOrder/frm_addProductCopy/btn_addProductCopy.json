@@ -2,7 +2,7 @@
     "resetFormOnClick": true,
     "boxShadow": "none",
     "widgetName": "btn_addProductCopy",
-    "onClick": "{{\nutils.addPurchaseOrder()\n}}",
+    "onClick": "{{\nutils11.addPurchaseOrder()\n}}",
     "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
     "dynamicPropertyPathList": [{"key": "onClick"}],
     "displayName": "Button",

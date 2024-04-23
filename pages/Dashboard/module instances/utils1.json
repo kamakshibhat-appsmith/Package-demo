@@ -1,0 +1,19 @@
+{
+  "packageUUID": "35a35fb1-a9ea-4ac7-92f7-54d785869801",
+  "moduleUUID": "db23687f-512f-4c21-a6d1-1fc8ac172de1",
+  "type": "JS_MODULE",
+  "unpublishedModuleInstance": {
+    "version": "0.0.40",
+    "name": "utils1",
+    "contextType": "PAGE",
+    "pageId": "Dashboard",
+    "inputs": {},
+    "jsonPathKeys": [],
+    "isValid": true,
+    "invalids": [],
+    "userPermissions": []
+  },
+  "id": "Dashboard_utils1",
+  "deleted": false,
+  "gitSyncId": "66279d9d4cc7603079f3d200_e2131c1c-83f1-4d67-966c-90b2bcff1387"
+}

@@ -301,7 +301,7 @@
         "customColumn2": {
             "boxShadow": "{{tbl_purchaseOrderProducts.processedTableData.map((currentRow, currentIndex) => ( 'none'))}}",
             "computedValue": "",
-            "onClick": "{{utils.removeProduct()}}",
+            "onClick": "{{utils11.removeProduct()}}",
             "buttonColor": "#f22b2b",
             "isEditable": false,
             "alias": "Action",

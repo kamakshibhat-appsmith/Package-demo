@@ -24,7 +24,8 @@
         {"key": "primaryColumns.Description.computedValue"},
         {"key": "primaryColumns.customColumn1.computedValue"},
         {"key": "primaryColumns.customColumn1.textColor"},
-        {"key": "primaryColumns.VariationId.computedValue"}
+        {"key": "primaryColumns.VariationId.computedValue"},
+        {"key": "tableData"}
     ],
     "leftColumn": 31,
     "delimiter": ",",
@@ -61,7 +62,8 @@
         }
     },
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-    "columnUpdatedAt": 1679416150550,
+    "columnUpdatedAt": 1713878132726,
+    "originalBottomRow": 163,
     "defaultSelectedRowIndices": [0],
     "widgetName": "tbl_stockLevels",
     "defaultPageSize": 0,
@@ -458,13 +460,14 @@
     "textSize": "0.875rem",
     "widgetId": "f89kz8uvlm",
     "enableServerSideFiltering": false,
-    "tableData": "",
+    "tableData": "{{utils1.getProducts1.data}}",
     "label": "Data",
     "searchKey": "",
     "parentId": "0",
     "renderMode": "CANVAS",
     "horizontalAlignment": "LEFT",
     "isVisibleSearch": false,
+    "originalTopRow": 121,
     "isVisiblePagination": true,
     "verticalAlignment": "CENTER"
 }

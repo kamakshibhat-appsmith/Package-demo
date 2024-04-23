@@ -57,7 +57,8 @@
         }
     },
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-    "columnUpdatedAt": 1678790086820,
+    "columnUpdatedAt": 1713878132728,
+    "originalBottomRow": 163,
     "defaultSelectedRowIndices": [0],
     "widgetName": "tbl_recentPurchases",
     "defaultPageSize": 0,
@@ -315,6 +316,7 @@
     "renderMode": "CANVAS",
     "horizontalAlignment": "LEFT",
     "isVisibleSearch": true,
+    "originalTopRow": 121,
     "isVisiblePagination": true,
     "verticalAlignment": "CENTER"
 }

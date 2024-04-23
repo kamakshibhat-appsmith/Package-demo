@@ -9,14 +9,14 @@
         "visuals",
         "visualisations"
     ],
-    "topRow": 39,
-    "bottomRow": 74,
+    "topRow": 36,
+    "bottomRow": 73,
     "parentRowSpace": 10,
     "type": "CHART_WIDGET",
     "hideCard": false,
     "chartData": {"rvvojsd6rv": {
-        "data": "{{utils.productWarehouseChartData.data.map(d => {\n  return {\n    x: d.Warehouse,\n    y: d.Stock,\n  }\n})}}",
-        "seriesName": "Sales/"
+        "data": "{{utils1.productWarehouseChartData.data.map(d => {\n  return {\n    x: d.Warehouse,\n    y: d.Stock,\n  }\n})}}",
+        "seriesName": "Sales"
     }},
     "animateLoading": true,
     "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",

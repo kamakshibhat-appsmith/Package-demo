@@ -179,7 +179,7 @@
     "widgetId": "d04qmnyb1v",
     "allowAddNewRow": false,
     "enableServerSideFiltering": false,
-    "tableData": "{{utils.getAllWarehouses.data}}",
+    "tableData": "{{utils11.getAllWarehouses.data}}",
     "label": "Data",
     "searchKey": "",
     "parentId": "0njshrrzuy",

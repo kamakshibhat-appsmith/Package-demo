@@ -5,6 +5,7 @@
     "iconSVG": "/static/media/icon.db8a9cbd2acd22a31ea91cc37ea2a46c.svg",
     "topRow": 21,
     "isSortable": true,
+    "onPageChange": "{{utilspackage.getProducts1(sel_productStockFilter.selectedOptionValue, {limit: tbl_products.pageSize},{offset: tbl_products.pageOffset})}}",
     "type": "TABLE_WIDGET_V2",
     "inlineEditingSaveOption": "ROW_LEVEL",
     "animateLoading": true,
@@ -12,7 +13,6 @@
         {"key": "accentColor"},
         {"key": "borderRadius"},
         {"key": "boxShadow"},
-        {"key": "tableData"},
         {"key": "primaryColumns.Id.computedValue"},
         {"key": "primaryColumns.Name.computedValue"},
         {"key": "primaryColumns.LowStock.computedValue"},
@@ -28,7 +28,8 @@
         {"key": "primaryColumns.Sku.computedValue"},
         {"key": "primaryColumns.Description.computedValue"},
         {"key": "primaryColumns.customColumn1.textColor"},
-        {"key": "primaryColumns.VariationId.computedValue"}
+        {"key": "primaryColumns.VariationId.computedValue"},
+        {"key": "tableData"}
     ],
     "leftColumn": 1,
     "delimiter": ",",
@@ -39,7 +40,7 @@
     "isVisible": true,
     "enableClientSideSearch": true,
     "version": 1,
-    "totalRecordsCount": 0,
+    "totalRecordsCount": "100",
     "isLoading": false,
     "childStylesheet": {
         "button": {
@@ -65,7 +66,7 @@
         }
     },
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-    "columnUpdatedAt": 1713268217240,
+    "columnUpdatedAt": 1713877735174,
     "primaryColumnId": "Id",
     "defaultSelectedRowIndices": [0],
     "widgetName": "tbl_products",
@@ -89,10 +90,11 @@
     "dynamicPropertyPathList": [
         {"key": "primaryColumns.customColumn2.onClick"},
         {"key": "primaryColumns.customColumn1.textColor"},
-        {"key": "tableData"}
+        {"key": "tableData"},
+        {"key": "onPageChange"}
     ],
     "displayName": "Table",
-    "bottomRow": 80,
+    "bottomRow": 57,
     "columnWidthMap": {
         "Category": 122,
         "LowStock": 123,
@@ -111,11 +113,14 @@
     },
     "parentRowSpace": 10,
     "hideCard": false,
+    "onPageSizeChange": "",
     "parentColumnSpace": 19.8125,
     "dynamicTriggerPathList": [
         {"key": "onRowSelected"},
         {"key": "primaryColumns.customColumn2.onClick"},
-        {"key": "primaryColumns.customColumn3.onClick"}
+        {"key": "primaryColumns.customColumn3.onClick"},
+        {"key": "onPageSizeChange"},
+        {"key": "onPageChange"}
     ],
     "borderWidth": "1",
     "primaryColumns": {
@@ -236,7 +241,7 @@
             "verticalAlignment": "CENTER"
         },
         "customColumn1": {
-            "computedValue": "{{tbl_products.processedTableData.map((currentRow, currentIndex) => ( \ncurrentRow.TotalStock || 0 + ` (${utils.returnStockStatus(currentRow.TotalStock, currentRow.LowStock).status})`\n))}}",
+            "computedValue": "{{tbl_products.processedTableData.map((currentRow, currentIndex) => ( \ncurrentRow.TotalStock || 0 + ` (${utils11.returnStockStatus(currentRow.TotalStock, currentRow.LowStock).status})`\n))}}",
             "isEditable": false,
             "alias": "Stock",
             "enableSort": true,
@@ -253,7 +258,7 @@
             "isDiscardVisible": true,
             "isVisible": true,
             "label": "Stock",
-            "textColor": "{{tbl_products.processedTableData.map((currentRow, currentIndex) => ( utils.returnStockStatus(currentRow.TotalStock, currentRow.LowStock).color))}}",
+            "textColor": "{{tbl_products.processedTableData.map((currentRow, currentIndex) => ( utils11.returnStockStatus(currentRow.TotalStock, currentRow.LowStock).color))}}",
             "labelColor": "#FFFFFF",
             "columnType": "text",
             "horizontalAlignment": "LEFT",
@@ -268,7 +273,7 @@
         "customColumn2": {
             "boxShadow": "{{tbl_products.processedTableData.map((currentRow, currentIndex) => ( 'none'))}}",
             "computedValue": "",
-            "onClick": "{{\nutils.getProductWarehousesForUpdate();\nshowModal('mdl_productDetail');\n}}",
+            "onClick": "{{\nutils11.getProductWarehousesForUpdate();\nshowModal('mdl_productDetail');\n}}",
             "buttonColor": "{{tbl_products.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.colors.primaryColor))}}",
             "isEditable": false,
             "alias": "Action",
@@ -545,10 +550,11 @@
     "textSize": "0.875rem",
     "widgetId": "r7yit6f2ek",
     "enableServerSideFiltering": false,
-    "tableData": "{{utils.getProducts.data}}",
+    "tableData": "{{utilspackage.getProducts1.data}}",
     "label": "Data",
     "searchKey": "",
     "parentId": "0",
+    "serverSidePaginationEnabled": false,
     "renderMode": "CANVAS",
     "horizontalAlignment": "LEFT",
     "isVisibleSearch": true,

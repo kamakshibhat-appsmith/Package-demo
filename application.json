@@ -25,6 +25,9 @@
   "appIsExample": false,
   "unreadCommentThreads": 0,
   "clonedFromApplicationId": "661e117ecd49ad59d7250035",
+  "unpublishedApplicationDetail": {
+    "hiddenJSLibs": []
+  },
   "color": "#EAEDFB",
   "icon": "cloud",
   "unpublishedAppLayout": {
