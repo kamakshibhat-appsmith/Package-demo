@@ -1,0 +1,88 @@
+{
+  "unpublishedPage": {
+    "name": "Purchase Orders",
+    "slug": "purchase-orders",
+    "layouts": [
+      {
+        "viewMode": false,
+        "dsl": {
+          "widgetName": "MainContainer",
+          "backgroundColor": "none",
+          "rightColumn": 1224,
+          "snapColumns": 64,
+          "detachFromLayout": true,
+          "widgetId": "0",
+          "topRow": 0,
+          "bottomRow": 790,
+          "containerStyle": "none",
+          "snapRows": 95,
+          "parentRowSpace": 1,
+          "type": "CANVAS_WIDGET",
+          "canExtend": true,
+          "version": 89,
+          "minHeight": 970,
+          "parentColumnSpace": 1,
+          "dynamicBindingPathList": [],
+          "leftColumn": 0
+        },
+        "layoutOnLoadActions": [
+          [
+            {
+              "id": "Purchase Orders_getSupplier",
+              "name": "getSupplier",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [
+                "this.params.supplierId"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Purchase Orders_utils.getPurchaseOrders",
+              "name": "utils.getPurchaseOrders",
+              "collectionId": "Purchase Orders_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "SELECT po.*, c.name, c.phone, c.email, l.label, l.address1\nFROM purchase_order po\nJOIN company c ON po.company_id = c.id\nJOIN location l ON po.location_id = l.id;\n"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Purchase Orders_utils.getSuppliers",
+              "name": "utils.getSuppliers",
+              "collectionId": "Purchase Orders_utils",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "SELECT * FROM company;\n"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Purchase Orders_getWarehouses",
+              "name": "getWarehouses",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            }
+          ]
+        ],
+        "layoutOnLoadActionErrors": [],
+        "validOnPageLoadActions": true,
+        "id": "Purchase Orders",
+        "deleted": false,
+        "policies": [],
+        "userPermissions": []
+      }
+    ],
+    "userPermissions": [],
+    "policies": [],
+    "isHidden": false
+  },
+  "deleted": false,
+  "gitSyncId": "661f7ff8cd49ad59d72529f1_661f7ff8cd49ad59d72529fc"
+}
