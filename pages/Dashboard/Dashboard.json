@@ -34,7 +34,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async sel1 => {\n  const productLocations = await _$utils1$_getProductWarehouse.run(sel1);\n  return productLocations.map(l => {\n    return {\n      Stock: l.stock,\n      Warehouse: l.label\n    };\n  });\n}"
+                "async (sel1 = 1) => {\n  const productLocations = await _$utils1$_getProductWarehouse.run(sel1);\n  return productLocations.map(l => {\n    return {\n      Stock: l.stock,\n      Warehouse: l.label\n    };\n  });\n}"
               ],
               "timeoutInMillisecond": 10000
             },
@@ -79,7 +79,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async (selectedvalue, limit, offset) => {\n  const stockFilter = selectedvalue;\n  const products = await _$utils1$_getProducts1.run(limit, offset);\n  let filteredProducts = products;\n  if (stockFilter === 'Low stock') {\n    filteredProducts = products.filter(p => p.total_stock && p.total_stock < p.low_stock && p.total_stock !== 0);\n  } else if (stockFilter === 'Out of stock') {\n    filteredProducts = products.filter(p => p.total_stock < 1);\n  }\n  return filteredProducts.map(p => ({\n    Id: p.id,\n    Name: p.name,\n    SalePrice: p.price,\n    CostPrice: p.cost,\n    Sku: p.sku,\n    Category: p.category,\n    LowStock: p.low_stock,\n    Image: p.image,\n    TotalStock: p.total_stock,\n    VariationId: p.product_variant_id,\n    Description: p.description\n  }));\n}"
+                "async (selectedvalue, user) => {\n  const stockFilter = selectedvalue;\n  const products = await _$utils1$_getProducts.run(user);\n  let filteredProducts = products;\n  if (stockFilter === 'Low stock') {\n    filteredProducts = products.filter(p => p.total_stock && p.total_stock < p.low_stock && p.total_stock !== 0);\n  } else if (stockFilter === 'Out of stock') {\n    filteredProducts = products.filter(p => p.total_stock < 1);\n  }\n  return filteredProducts.map(p => ({\n    Id: p.id,\n    Name: p.name,\n    SalePrice: p.price,\n    CostPrice: p.cost,\n    Sku: p.sku,\n    Category: p.category,\n    LowStock: p.low_stock,\n    Image: p.image,\n    TotalStock: p.total_stock,\n    VariationId: p.product_variant_id,\n    Description: p.description\n  }));\n}"
               ],
               "timeoutInMillisecond": 10000
             },
@@ -90,23 +90,12 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  const orders = await getPurchaseOrders.run();\n  const data = orders.map(o => {\n    return {\n      Id: o.id,\n      Supplier: o.name,\n      Warehouse: o.label,\n      OrderDate: new Date(o.order_date).toDateString(),\n      Status: o.status,\n      Tax: o.tax,\n      Address: o.address,\n      Products: o.total_product_count\n    };\n  });\n  const tenDaysAgo = moment().subtract(10, 'days');\n  if (orders) {\n    const filteredData = data.filter(o => moment(new Date(o.OrderDate)).isSameOrAfter(tenDaysAgo));\n    if (filteredData && filteredData.length > 0) {\n      return filteredData;\n    } else {\n      return data;\n    }\n  } else {\n    return [];\n  }\n}"
+                "SELECT po.*, c.name, c.phone, c.email, l.label, l.address1, COUNT(pop.product_id) as total_product_count\nFROM purchase_order po\nJOIN company c ON po.company_id = c.id\nJOIN location l ON po.location_id = l.id\nLEFT JOIN purchase_order_product pop ON po.id = pop.purchase_order_id\nGROUP BY po.id, po.updated, po.company_id, c.name, c.phone, c.email, l.label, l.address1;\n"
               ],
               "timeoutInMillisecond": 10000
             }
           ],
           [
-            {
-              "id": "Dashboard__$utils1$_getProducts1",
-              "name": "_$utils1$_getProducts1",
-              "confirmBeforeExecute": false,
-              "pluginType": "DB",
-              "jsonPathKeys": [
-                "this.params.offset",
-                "this.params.limit"
-              ],
-              "timeoutInMillisecond": 10000
-            },
             {
               "id": "Dashboard_getProductWarehouse",
               "name": "getProductWarehouse",
@@ -123,8 +112,20 @@
               "collectionId": "Dashboard_utils",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Dashboard__$utils1$_getProducts",
+              "name": "_$utils1$_getProducts",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
               "jsonPathKeys": [
-                "async () => {\n  const products = await getProducts.run();\n  const suppliers = await getSuppliers.run();\n  const purchaseOrders = await getPurchaseOrders.run();\n  return {\n    productCount: products.length,\n    lowStock: products.filter(p => p.total_stock < p.low_stock).length,\n    outOfStock: products.filter(p => p.total_stock < 1).length,\n    suppliers: suppliers.length,\n    stockValue: products.reduce((a, b) => a + b.price, 0) || 0,\n    unfulfilledPurchaseOrders: purchaseOrders.filter(p => p.status === 'UNFULFILLED').length,\n    fulfilledPurchaseOrders: purchaseOrders.filter(p => p.status === 'RECEIVED').length\n  };\n}"
+                "_$utils1$_utils.stockPageLogic()",
+                "this.limit.user.offset",
+                "this.params.user.limit"
               ],
               "timeoutInMillisecond": 10000
             }
@@ -137,7 +138,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => _$utils1$_getProducts1.data.map(p => ({\n  label: p.name,\n  value: p.id\n}))"
+                "async () => _$utils1$_getProducts.data.map(p => ({\n  label: p.name,\n  value: p.id\n}))"
               ],
               "timeoutInMillisecond": 10000
             }

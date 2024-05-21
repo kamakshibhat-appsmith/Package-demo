@@ -34,7 +34,8 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async supplierId => {\n  const products = await getSupplierProducts.run({\n    supplierId\n  });\n  return products.map(p => {\n    return {\n      Id: p.id,\n      Name: p.name,\n      Price: p.price,\n      Description: p.description,\n      Image: p.image,\n      Sku: p.sku\n    };\n  });\n}"
+                "this.params.supplierId",
+                "SELECT * FROM company_product WHERE company_id = {{this.params.supplierId}}"
               ],
               "timeoutInMillisecond": 10000
             },
@@ -45,7 +46,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  const suppliers = await getSuppliers.run();\n  return suppliers.map(s => {\n    return {\n      Id: s.id,\n      Name: s.name,\n      Email: s.email,\n      Phone: s.phone,\n      Address: s.address\n    };\n  });\n}"
+                "SELECT * FROM company;\n"
               ],
               "timeoutInMillisecond": 10000
             }

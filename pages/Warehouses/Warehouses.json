@@ -33,9 +33,7 @@
               "collectionId": "Warehouses_utils",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
-              "jsonPathKeys": [
-                "async () => {\n  const warehouseData = await getWarehouses.run();\n  return warehouseData.map(d => {\n    return {\n      Id: d.id,\n      Name: d.label,\n      Address: d.address,\n      Country: d.country,\n      State: d.state,\n      City: d.city,\n      Postcode: d.postal_code\n    };\n  });\n}"
-              ],
+              "jsonPathKeys": [],
               "timeoutInMillisecond": 10000
             }
           ]

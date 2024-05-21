@@ -1,10 +1,12 @@
 {
+  "moduleInstanceId": "Products_utilspackage",
   "isPublic": true,
+  "rootModuleInstanceId": "Products_utilspackage",
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "getProducts1",
-    "fullyQualifiedName": "_$utils1$_utils.getProducts1",
+    "name": "stockPageLogic",
+    "fullyQualifiedName": "_$utilspackage$_utils.stockPageLogic",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -16,21 +18,18 @@
     },
     "pageId": "Products",
     "contextType": "PAGE",
-    "collectionId": "66279f204cc7603079f3d44e",
+    "collectionId": "Products__$utilspackage$_utils",
     "executeOnLoad": false,
-    "isValid": false,
-    "invalids": [
-      "No configurations found in this action"
-    ],
+    "isValid": true,
+    "invalids": [],
     "messages": [],
-    "jsonPathKeys": [],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2024-04-23T12:00:46Z"
+    "createdAt": "2024-05-15T11:01:12Z"
   },
-  "id": "Products__$utils1$_utils.getProducts1",
+  "id": "Products__$utilspackage$_utils.stockPageLogic",
   "deleted": false,
-  "gitSyncId": "66279d9d4cc7603079f3d200_32db07b5-cc36-45de-a231-73b2ad7e6524"
+  "gitSyncId": "664c981c9285181c8ada6bb9_e6534124-30da-429c-bac8-fbd69d2a42f0"
 }

@@ -1,10 +1,12 @@
 {
+  "moduleInstanceId": "Dashboard_utils1",
   "isPublic": true,
+  "rootModuleInstanceId": "Dashboard_utils1",
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "getProducts1",
-    "fullyQualifiedName": "_$utils1$_utils.getProducts1",
+    "name": "getPurchaseOrders",
+    "fullyQualifiedName": "_$utils1$_utils.getPurchaseOrders",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -14,23 +16,20 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Products",
+    "pageId": "Dashboard",
     "contextType": "PAGE",
-    "collectionId": "66279f204cc7603079f3d44e",
+    "collectionId": "Dashboard__$utils1$_utils",
     "executeOnLoad": false,
-    "isValid": false,
-    "invalids": [
-      "No configurations found in this action"
-    ],
+    "isValid": true,
+    "invalids": [],
     "messages": [],
-    "jsonPathKeys": [],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2024-04-23T12:00:46Z"
+    "createdAt": "2024-04-23T17:38:06Z"
   },
-  "id": "Products__$utils1$_utils.getProducts1",
+  "id": "Dashboard__$utils1$_utils.getPurchaseOrders",
   "deleted": false,
-  "gitSyncId": "66279d9d4cc7603079f3d200_32db07b5-cc36-45de-a231-73b2ad7e6524"
+  "gitSyncId": "664c981c9285181c8ada6bb9_1c00d3c1-9319-4599-aefb-fa7fa638c131"
 }
